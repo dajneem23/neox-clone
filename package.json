@@ -1,0 +1,34 @@
+{
+  "name": "neox-clone",
+  "version": "1.0.0",
+  "description": "A modern clone of the NeoX website for Cloudflare Pages",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev . --port 8000",
+    "preview": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy . --project-name=neox-clone",
+    "publish": "wrangler pages deploy .",
+    "cf-typegen": "wrangler types"
+  },
+  "keywords": [
+    "neox",
+    "cloudflare",
+    "pages",
+    "static-site",
+    "payment",
+    "fintech"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/neox-clone.git"
+  }
+}
