@@ -176,8 +176,17 @@ a {
 }
 
 .nav_logo {
-    width: 48px !important;
-    height: 19px !important;
+    /* Make the header logo larger on desktop while keeping proportions */
+    width: 96px !important;
+    height: 38px !important;
+}
+
+/* Slightly reduce logo on smaller screens to preserve space */
+@media (max-width: 640px) {
+    .nav_logo {
+        width: 72px !important;
+        height: 28px !important;
+    }
 }
 
 .nav_logo svg {
@@ -306,6 +315,11 @@ a {
     bottom: 0;
     z-index: -1;
     overflow: hidden;
+    /* Background image from neox.vn banner */
+    background-image: url('https://cdn.prod.website-files.com/68e759e3d3c682709bfea9eb/68e8a2f6d14e952c946faa55_banner%20bg%20graphic.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .wave-gradient {
