@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
+  <defs>
+    <linearGradient id="globe-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orbit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <style>
+    .globe { animation: globeRotate 8s linear infinite; transform-origin: center; }
+    .orbit { animation: orbitRotate 4s linear infinite; transform-origin: 24px 24px; }
+    .dot { animation: dotPulse 2s ease-in-out infinite; }
+    .dot-1 { animation-delay: 0s; }
+    .dot-2 { animation-delay: 0.4s; }
+    .dot-3 { animation-delay: 0.8s; }
+    
+    @keyframes globeRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbitRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+  </style>
+
+  <!-- Main Globe -->
+  <g class="globe">
+    <circle cx="24" cy="24" r="14" fill="none" stroke="url(#globe-gradient)" stroke-width="2"/>
+    <ellipse cx="24" cy="24" rx="14" ry="6" fill="none" stroke="url(#globe-gradient)" stroke-width="1.5" opacity="0.6"/>
+    <ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="url(#globe-gradient)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="24" y1="10" x2="24" y2="38" stroke="url(#globe-gradient)" stroke-width="1.5" opacity="0.4"/>
+    <line x1="10" y1="24" x2="38" y2="24" stroke="url(#globe-gradient)" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Orbit ring -->
+  <g class="orbit">
+    <ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="url(#orbit-gradient)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+    <circle cx="44" cy="24" r="3" fill="url(#orbit-gradient)"/>
+  </g>
+
+  <!-- Connection dots -->
+  <circle class="dot dot-1" cx="16" cy="18" r="2" fill="#34D399"/>
+  <circle class="dot dot-2" cx="32" cy="20" r="2" fill="#6366F1"/>
+  <circle class="dot dot-3" cx="24" cy="30" r="2" fill="#FBBF24"/>
+</svg>

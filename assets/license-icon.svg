@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
+  <defs>
+    <linearGradient id="license-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <style>
+    .badge { animation: badgePulse 3s ease-in-out infinite; transform-origin: center; }
+    .star { animation: starRotate 4s linear infinite; transform-origin: center; }
+    .check { 
+      stroke-dasharray: 20;
+      stroke-dashoffset: 20;
+      animation: checkDraw 2s ease-out infinite;
+    }
+    
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes starRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes checkDraw {
+      0% { stroke-dashoffset: 20; }
+      50%, 100% { stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <!-- Badge background -->
+  <g class="badge">
+    <circle cx="24" cy="24" r="18" fill="url(#license-gradient)" opacity="0.2"/>
+    <circle cx="24" cy="24" r="14" fill="url(#license-gradient)"/>
+    
+    <!-- Ribbon -->
+    <path d="M20 32v10l4-3 4 3V32" fill="#4F46E5"/>
+  </g>
+
+  <!-- Star -->
+  <g class="star">
+    <path d="M24 10l2.5 5 5.5 0.8-4 3.9 0.9 5.5-4.9-2.6-4.9 2.6 0.9-5.5-4-3.9 5.5-0.8z" 
+          fill="#FBBF24"/>
+  </g>
+
+  <!-- Checkmark -->
+  <path class="check" d="M18 24l4 4 8-8" stroke="white" stroke-width="2.5" 
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

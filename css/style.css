@@ -342,7 +342,7 @@ a {
     width: 96px;
     height: 38px;
     transition: all var(--transition-base);
-    filter: brightness(1.1) drop-shadow(0 1px 3px rgba(124, 58, 237, 0.2));
+    filter: brightness(1.05) drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3));
 }
 
 .logo:hover {
@@ -350,10 +350,10 @@ a {
 }
 
 .logo:hover img {
-    filter: brightness(1.15) 
-            drop-shadow(0 2px 6px rgba(124, 58, 237, 0.4))
-            drop-shadow(0 1px 3px rgba(255, 170, 0, 0.3));
-    transform: translateY(-1px);
+    filter: brightness(1.1) 
+            drop-shadow(0 4px 8px rgba(139, 92, 246, 0.5))
+            drop-shadow(0 2px 4px rgba(167, 139, 250, 0.4));
+    transform: translateY(-1px) scale(1.02);
 }
 
 /* Slightly reduce logo on smaller screens to preserve space */

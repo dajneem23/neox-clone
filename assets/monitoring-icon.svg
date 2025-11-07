@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
+  <defs>
+    <linearGradient id="monitor-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <style>
+    .screen { animation: screenPulse 3s ease-in-out infinite; }
+    .waveform { 
+      stroke-dasharray: 100;
+      animation: waveDraw 2s ease-in-out infinite;
+    }
+    .radar { animation: radarSpin 4s linear infinite; transform-origin: 24px 24px; }
+    .ping { animation: pingExpand 2s ease-out infinite; transform-origin: center; }
+    .ping-1 { animation-delay: 0s; }
+    .ping-2 { animation-delay: 0.5s; }
+    
+    @keyframes screenPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes waveDraw {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes radarSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pingExpand {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+  </style>
+
+  <!-- Monitor screen -->
+  <g class="screen">
+    <rect x="6" y="8" width="36" height="28" rx="3" fill="url(#monitor-gradient)"/>
+    <rect x="8" y="10" width="32" height="24" rx="2" fill="#1F2937"/>
+  </g>
+
+  <!-- Waveform/heartbeat -->
+  <path class="waveform" d="M10 22 L14 22 L16 18 L20 26 L24 14 L28 28 L32 22 L38 22" 
+        stroke="url(#wave-gradient)" stroke-width="2.5" stroke-linecap="round" 
+        stroke-linejoin="round" fill="none"/>
+
+  <!-- Radar sweep -->
+  <g class="radar" opacity="0.6">
+    <line x1="24" y1="22" x2="24" y2="14" stroke="#34D399" stroke-width="2"/>
+    <circle cx="24" cy="22" r="8" stroke="#34D399" stroke-width="1" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Activity indicators -->
+  <circle class="ping ping-1" cx="12" cy="32" r="2" fill="#10B981" opacity="0.8"/>
+  <circle class="ping ping-2" cx="36" cy="32" r="2" fill="#10B981" opacity="0.8"/>
+
+  <!-- Status bar -->
+  <rect x="10" y="40" width="28" height="2" rx="1" fill="#10B981"/>
+</svg>

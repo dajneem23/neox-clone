@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" fill="none" width="120" height="48">
+  <defs>
+    <linearGradient id="logo-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6; stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logo-mid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED; stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logo-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6D28D9; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6; stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logo-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDE4A" />
+      <stop offset="50%" stop-color="#FFAA00" />
+      <stop offset="100%" stop-color="#FFDE4A" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <style>
+    .logo-facet { animation: facetShift 4s ease-in-out infinite; }
+    .logo-facet-1 { animation-delay: 0s; }
+    .logo-facet-2 { animation-delay: 0.2s; }
+    .logo-facet-3 { animation-delay: 0.4s; }
+    .logo-text { animation: textGlow 3s ease-in-out infinite; }
+    .logo-x { animation: xRotate 5s ease-in-out infinite; }
+    
+    @keyframes facetShift {
+      0%, 100% { opacity: 1; transform: translateY(0); }
+      50% { opacity: 0.8; transform: translateY(-1px); }
+    }
+    @keyframes textGlow {
+      0%, 100% { filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3)); }
+      50% { filter: drop-shadow(0 4px 8px rgba(139, 92, 246, 0.6)); }
+    }
+    @keyframes xRotate {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(5deg) scale(1.05); }
+    }
+  </style>
+
+  <g class="logo-geometric">
+    <path class="logo-facet logo-facet-1" d="M23.6036 19.3759L28.7114 22.495L36.355 17.8457L36.3792 29.7741L3.00483 10.627L0.300293 12.0967V35.7859L3.00483 37.292L18.2557 28.3043L13.2322 25.3518L5.56437 29.7501V18.0129L38.9387 37.292L41.6068 35.726V12.0369L38.9028 10.627L23.6036 19.3759Z" fill="url(#logo-mid)"/>
+    <path class="logo-facet logo-facet-2" d="M20.9597 0.251953L5.76904 8.91706L20.9597 17.666L36.0909 8.97742L20.9597 0.251953Z" fill="url(#logo-light)"/>
+    <path class="logo-facet logo-facet-3" d="M5.76904 38.8448L20.9597 47.5938L36.0909 38.9046L20.9597 30.1797L5.76904 38.8448Z" fill="url(#logo-dark)"/>
+  </g>
+  
+  <g class="logo-text">
+    <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#8B5CF6"/>
+    <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#8B5CF6"/>
+    <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#8B5CF6"/>
+  </g>
+
+  <g class="logo-x" transform-origin="108 24">
+    <path d="M112.202 13.7095L95.99 32.6655C95.4968 33.2397 95.9293 34.1353 96.6869 34.1353H103.225L119.437 15.1794C119.581 14.9999 119.641 14.8327 119.641 14.6297C119.641 14.1395 119.268 13.733 118.739 13.733H112.202V13.7095Z" fill="url(#logo-shine)"/>
+    <path d="M112.202 13.7095L95.99 32.6655C95.4968 33.2397 95.9293 34.1353 96.6869 34.1353H103.225L119.437 15.1794C119.581 14.9999 119.641 14.8327 119.641 14.6297C119.641 14.1395 119.268 13.733 118.739 13.733H112.202V13.7095Z" transform="translate(215.427, 0) scale(-1, 1)" fill="url(#logo-shine)"/>
+  </g>
+</svg>

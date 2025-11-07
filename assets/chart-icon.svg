@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
+  <defs>
+    <linearGradient id="chart-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chart-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chart-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <style>
+    .bar { animation: barGrow 2s ease-out infinite; transform-origin: bottom; }
+    .bar-1 { animation-delay: 0s; }
+    .bar-2 { animation-delay: 0.2s; }
+    .bar-3 { animation-delay: 0.4s; }
+    .bar-4 { animation-delay: 0.6s; }
+    .trend-line { 
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawLine 2s ease-out infinite;
+    }
+    
+    @keyframes barGrow {
+      0% { transform: scaleY(0); opacity: 0; }
+      50% { transform: scaleY(1); opacity: 1; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+    @keyframes drawLine {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <!-- Chart bars -->
+  <g>
+    <rect class="bar bar-1" x="6" y="24" width="6" height="18" rx="2" fill="url(#chart-gradient-1)"/>
+    <rect class="bar bar-2" x="15" y="18" width="6" height="24" rx="2" fill="url(#chart-gradient-2)"/>
+    <rect class="bar bar-3" x="24" y="12" width="6" height="30" rx="2" fill="url(#chart-gradient-3)"/>
+    <rect class="bar bar-4" x="33" y="8" width="6" height="34" rx="2" fill="url(#chart-gradient-1)"/>
+  </g>
+
+  <!-- Trend line -->
+  <path class="trend-line" d="M4 38 L12 32 L21 28 L30 22 L40 16" 
+        stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Trend dots -->
+  <circle cx="12" cy="32" r="2.5" fill="#FBBF24">
+    <animate attributeName="r" values="2.5;3.5;2.5" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="21" cy="28" r="2.5" fill="#FBBF24">
+    <animate attributeName="r" values="2.5;3.5;2.5" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="30" cy="22" r="2.5" fill="#FBBF24">
+    <animate attributeName="r" values="2.5;3.5;2.5" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="16" r="2.5" fill="#FBBF24">
+    <animate attributeName="r" values="2.5;3.5;2.5" dur="1.5s" begin="0.9s" repeatCount="indefinite"/>
+  </circle>
+</svg>
