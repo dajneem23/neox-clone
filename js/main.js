@@ -1,3 +1,123 @@
+// ===================================
+// Animated Gradient Canvas (Stripe-like)
+// ===================================
+
+class GradientCanvas {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+        
+        this.ctx = this.canvas.getContext('2d');
+        this.width = 0;
+        this.height = 0;
+        this.time = 0;
+        
+        // Gradient colors (purple theme)
+        this.colors = [
+            { r: 124, g: 58, b: 237 },   // #7C3AED
+            { r: 167, g: 139, b: 250 },  // #A78BFA
+            { r: 109, g: 40, b: 217 },   // #6D28D9
+            { r: 196, g: 181, b: 253 },  // #C4B5FD
+        ];
+        
+        this.init();
+    }
+    
+    init() {
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.animate();
+    }
+    
+    resize() {
+        this.width = this.canvas.offsetWidth;
+        this.height = this.canvas.offsetHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+    }
+    
+    animate() {
+        this.time += 0.003;
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
+    
+    draw() {
+        const ctx = this.ctx;
+        const w = this.width;
+        const h = this.height;
+        
+        // Create gradient layers with animation
+        const gradient1 = ctx.createRadialGradient(
+            w * (0.5 + Math.sin(this.time) * 0.3),
+            h * (0.3 + Math.cos(this.time * 0.8) * 0.2),
+            0,
+            w * 0.5,
+            h * 0.5,
+            w * 0.8
+        );
+        
+        const gradient2 = ctx.createRadialGradient(
+            w * (0.7 + Math.cos(this.time * 1.2) * 0.2),
+            h * (0.6 + Math.sin(this.time * 0.9) * 0.3),
+            0,
+            w * 0.7,
+            h * 0.6,
+            w * 0.9
+        );
+        
+        const gradient3 = ctx.createRadialGradient(
+            w * (0.2 + Math.sin(this.time * 1.5) * 0.2),
+            h * (0.7 + Math.cos(this.time * 1.1) * 0.2),
+            0,
+            w * 0.3,
+            h * 0.7,
+            w * 0.7
+        );
+        
+        // Clear canvas
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+        ctx.fillRect(0, 0, w, h);
+        
+        // First gradient layer
+        const c1 = this.colors[0];
+        gradient1.addColorStop(0, `rgba(${c1.r}, ${c1.g}, ${c1.b}, 0.15)`);
+        gradient1.addColorStop(0.5, `rgba(${c1.r}, ${c1.g}, ${c1.b}, 0.08)`);
+        gradient1.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = gradient1;
+        ctx.fillRect(0, 0, w, h);
+        
+        // Second gradient layer
+        const c2 = this.colors[1];
+        gradient2.addColorStop(0, `rgba(${c2.r}, ${c2.g}, ${c2.b}, 0.12)`);
+        gradient2.addColorStop(0.5, `rgba(${c2.r}, ${c2.g}, ${c2.b}, 0.06)`);
+        gradient2.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.globalCompositeOperation = 'screen';
+        ctx.fillStyle = gradient2;
+        ctx.fillRect(0, 0, w, h);
+        
+        // Third gradient layer
+        const c3 = this.colors[2];
+        gradient3.addColorStop(0, `rgba(${c3.r}, ${c3.g}, ${c3.b}, 0.1)`);
+        gradient3.addColorStop(0.5, `rgba(${c3.r}, ${c3.g}, ${c3.b}, 0.05)`);
+        gradient3.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = gradient3;
+        ctx.fillRect(0, 0, w, h);
+        
+        // Reset composite operation
+        ctx.globalCompositeOperation = 'source-over';
+    }
+}
+
+// Initialize gradient canvas
+document.addEventListener('DOMContentLoaded', () => {
+    new GradientCanvas('gradientCanvas');
+});
+
+// ===================================
+// Navigation and UI
+// ===================================
+
 // Mobile Menu Toggle
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
