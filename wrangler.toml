@@ -5,3 +5,13 @@ compatibility_date = "2024-01-01"
 # Workers Site configuration for serving static assets
 [site]
 bucket = "."
+
+
+
+
+[observability]
+[observability.logs]
+enabled = false
+head_sampling_rate = 1
+invocation_logs = true
+persist = true

@@ -456,3 +456,106 @@ function showTypingIndicator() {
 }
 
 console.log('NeoX Chat Widget initialized! 💬');
+
+// ===================================
+// Dashboard Number Animation
+// ===================================
+
+function animateNumber(element, start, end, duration, formatFn) {
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = start + (end - start) * easeOut;
+
+        element.textContent = formatFn ? formatFn(current) : Math.floor(current);
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+// Format currency with commas
+function formatCurrency(num) {
+    return '$' + num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+// Format percentage
+function formatPercentage(num) {
+    return '+' + num.toFixed(1) + '%';
+}
+
+// Format integer with commas
+function formatInteger(num) {
+    return Math.floor(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+// Initialize dashboard animations when in viewport
+function initDashboardAnimations() {
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+
+                // Animate stat values
+                const statValues = entry.target.querySelectorAll('.stat-value');
+                statValues.forEach(stat => {
+                    const text = stat.textContent;
+
+                    // Check if it's a currency value
+                    if (text.includes('$')) {
+                        const value = parseFloat(text.replace(/[$,]/g, ''));
+                        animateNumber(stat, 0, value, 2000, formatCurrency);
+                    }
+                    // Check if it's a percentage
+                    else if (text.includes('%')) {
+                        const value = parseFloat(text.replace(/[+%]/g, ''));
+                        animateNumber(stat, 0, value, 1500, formatPercentage);
+                    }
+                });
+
+                // Animate stat numbers
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const value = parseInt(stat.textContent.replace(/,/g, ''));
+                    animateNumber(stat, 0, value, 1800, formatInteger);
+                });
+
+                // Animate large currency values
+                const statLarge = entry.target.querySelectorAll('.stat-value-large');
+                statLarge.forEach(stat => {
+                    const text = stat.textContent;
+                    if (text.includes('$')) {
+                        const value = parseFloat(text.replace(/[$,]/g, ''));
+                        animateNumber(stat, 0, value, 2500, formatCurrency);
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe all dashboard mockups
+    const dashboards = document.querySelectorAll('.dashboard-mockup');
+    dashboards.forEach(dashboard => observer.observe(dashboard));
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDashboardAnimations);
+} else {
+    initDashboardAnimations();
+}
+
+console.log('Dashboard animations initialized! 📊');
