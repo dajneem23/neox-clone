@@ -427,10 +427,10 @@ function escapeHtml(text) {
 
 // Close chat when clicking outside
 document.addEventListener('click', (e) => {
-    if (chatWidget.classList.contains('active') &&
-        !chatWidget.contains(e.target) &&
-        e.target !== chatBubble) {
-        // Don't close immediately to allow for better UX
+    if (chatWidget && chatWidget.classList.contains('active') &&
+        !chatWidget.contains(e.target)) {
+        // Close the chat widget
+        chatWidget.classList.remove('active');
     }
 });
 
