@@ -310,11 +310,72 @@
                 <!-- Payment Gateway -->
                 <div class="product-card" id="gateway">
                     <div class="product-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect width="48" height="48" rx="12" fill="#EF4444" opacity="0.1" />
-                            <circle cx="24" cy="24" r="8" stroke="#EF4444" stroke-width="3" />
-                            <path d="M24 16V32M16 24H32" stroke="#EF4444" stroke-width="3" stroke-linecap="round" />
+                        <!-- Polished globe icon: meridians, latitudes, connection nodes and subtle orbit ring -->
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <style>
+                                    @keyframes spin {
+                                        from {
+                                            transform: rotate(0deg);
+                                        }
+                        
+                                        to {
+                                            transform: rotate(360deg);
+                                        }
+                                    }
+                        
+                                    @keyframes spin-reverse {
+                                        from {
+                                            transform: rotate(0deg);
+                                        }
+                        
+                                        to {
+                                            transform: rotate(-360deg);
+                                        }
+                                    }
+                        
+                                    /* Áp dụng animation cho nhóm đường/nút bên trong */
+                                    #globe-internals {
+                                        animation: spin 10s linear infinite;
+                                        transform-origin: 24px 24px;
+                                    }
+                        
+                                    /* Áp dụng animation ngược cho vòng quỹ đạo bên ngoài */
+                                    #orbit-ring {
+                                        animation: spin-reverse 15s linear infinite;
+                                        transform-origin: 24px 24px;
+                                    }
+                                </style>
+                            </defs>
+                        
+                            <rect width="48" height="48" rx="12" fill="#EF4444" opacity="0.06" />
+                            <g transform="translate(0,0)">
+                                <circle cx="24" cy="24" r="10.5" stroke="#EF4444" stroke-width="1.8" fill="none" />
+                        
+                                <g id="globe-internals">
+                                    <path d="M14 24c0-3 5-5 10-5s10 2 10 5-5 5-10 5-10-2-10-5z" stroke="#EF4444" stroke-width="1.1"
+                                        fill="none" />
+                                    <path d="M15 24c0-1.5 4-3 9-3s9 1.5 9 3-4 3-9 3-9-1.5-9-3z" stroke="#EF4444" stroke-width="1" fill="none"
+                                        opacity="0.9" />
+                                    <path d="M24 13.5c-2 0-3 4-3 10.5s1 10.5 3 10.5 3-4 3-10.5-1-10.5-3-10.5z" stroke="#EF4444" stroke-width="1"
+                                        fill="none" opacity="0.95" />
+                                    <path d="M20.5 15c-1 1.5-.8 6.5-.8 9s-.2 7.5.8 9" stroke="#EF4444" stroke-width="0.9" stroke-linecap="round"
+                                        fill="none" opacity="0.8" />
+                                    <path d="M27.5 15c1 1.5.8 6.5.8 9s.2 7.5-.8 9" stroke="#EF4444" stroke-width="0.9" stroke-linecap="round"
+                                        fill="none" opacity="0.8" />
+                                    <circle cx="18.5" cy="19" r="1.2" fill="#EF4444" />
+                                    <circle cx="29" cy="21.5" r="1.2" fill="#EF4444" />
+                                    <circle cx="20" cy="28" r="1.2" fill="#EF4444" />
+                                    <circle cx="28.5" cy="27" r="1.2" fill="#EF4444" />
+                                </g>
+                        
+                                <g id="orbit-ring">
+                                    <ellipse cx="24" cy="24" rx="13.5" ry="13.5" stroke="#EF4444" stroke-width="0.9" opacity="0.12"
+                                        fill="none" />
+                                </g>
+                            </g>
                         </svg>
+
                     </div>
                     <h3 class="product-title">Payment Gateway</h3>
                     <p class="product-description">
@@ -334,8 +395,11 @@
                     <div class="product-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <rect width="48" height="48" rx="12" fill="#F59E0B" opacity="0.1" />
-                            <rect x="14" y="18" width="20" height="14" rx="2" stroke="#F59E0B" stroke-width="3" />
-                            <path d="M18 18V16C18 14.3431 19.3431 13 21 13H27C28.6569 13 30 14.3431 30 16V18" stroke="#F59E0B" stroke-width="3" />
+                            <rect x="13" y="19" width="22" height="15" rx="2" stroke="#F59E0B" stroke-width="2.5" />
+                            <circle cx="17" cy="26" r="1.5" fill="#F59E0B" />
+                            <path d="M21 26H31" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+                            <path d="M21 30H28" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+                            <rect x="13" y="19" width="22" height="5" fill="#F59E0B" opacity="0.2" />
                             </svg>
                             </div>
                             <h3 class="product-title">NeoX Control</h3>
@@ -356,11 +420,10 @@
                                 <div class="product-icon">
                                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                                         <rect width="48" height="48" rx="12" fill="#8B5CF6" opacity="0.1" />
-                                        <path d="M24 14L24 28M24 28L20 24M24 28L28 24" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M16 32H32" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" />
-                                        <circle cx="18" cy="20" r="2" fill="#8B5CF6" opacity="0.5" />
-                                        <circle cx="30" cy="20" r="2" fill="#8B5CF6" opacity="0.5" />
+                                        <circle cx="24" cy="18" r="4" stroke="#8B5CF6" stroke-width="2.5" />
+                                        <path d="M18 28L24 34L30 28" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M24 22V32" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" />
+                                        <path d="M14 28L18 32M34 28L30 32" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="product-title">NeoX Disbursement</h3>
@@ -381,7 +444,19 @@
                     <div class="product-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <rect width="48" height="48" rx="12" fill="#4F46E5" opacity="0.1" />
-                            <path d="M24 14V34M14 24H34" stroke="#4F46E5" stroke-width="3" stroke-linecap="round" />
+                            <!-- Wallet/Container -->
+                            <rect x="14" y="24" width="20" height="12" rx="2" stroke="#4F46E5" stroke-width="2.5" fill="none" />
+                            <path d="M16 24V20C16 18 17 17 19 17H29C31 17 32 18 32 20V24" stroke="#4F46E5" stroke-width="2.5"
+                                stroke-linecap="round" />
+                            <!-- Money flow arrows coming in from different directions -->
+                            <path d="M24 12L24 17" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M24 12L22 14M24 12L26 14" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M14 19L17 21" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M14 19L16 18M14 19L15 21" stroke="#4F46E5" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M34 19L31 21" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M34 19L32 18M34 19L33 21" stroke="#4F46E5" stroke-width="1.5" stroke-linecap="round" />
+                            <!-- Dollar sign in the wallet -->
+                            <text x="24" y="33" text-anchor="middle" fill="#4F46E5" font-size="10" font-weight="700">$</text>
                         </svg>
                     </div>
                     <h3 class="product-title">NeoX Collection</h3>
@@ -402,7 +477,9 @@
                     <div class="product-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <rect width="48" height="48" rx="12" fill="#10B981" opacity="0.1" />
-                            <path d="M16 24L22 30L32 18" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="24" cy="24" r="9" stroke="#10B981" stroke-width="2.5" />
+                            <path d="M20 24L22.5 26.5L28 21" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M24 14L26 16M24 34L26 32M14 24L16 26M34 24L32 26" stroke="#10B981" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="product-title">NeoX Payout</h3>

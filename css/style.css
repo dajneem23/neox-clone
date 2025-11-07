@@ -1396,6 +1396,103 @@ section {
     margin-bottom: var(--spacing-lg);
 }
 
+.product-card:hover .product-icon {
+    transform: translateY(-4px) scale(1.05);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Disable hover effect for Payment Gateway to prevent jumping */
+.product-card#gateway:hover .product-icon {
+    transform: none;
+}
+
+.product-icon svg {
+    transition: all 0.4s ease;
+}
+
+/* Globe rotation - simulate 3D rotation by animating meridians */
+.product-card#gateway .product-icon svg g path:nth-of-type(3),
+.product-card#gateway .product-icon svg g path:nth-of-type(4),
+.product-card#gateway .product-icon svg g path:nth-of-type(5) {
+    transform-origin: center center;
+    transform-box: fill-box;
+}
+
+.product-card#gateway .product-icon svg g path:nth-of-type(3) {
+    animation: meridian1 4s ease-in-out infinite;
+}
+
+.product-card#gateway .product-icon svg g path:nth-of-type(4) {
+    animation: meridian2 4s ease-in-out infinite;
+    animation-delay: -1.3s;
+}
+
+.product-card#gateway .product-icon svg g path:nth-of-type(5) {
+    animation: meridian3 4s ease-in-out infinite;
+    animation-delay: -2.6s;
+}
+
+@keyframes meridian1 {
+    0%, 100% { opacity: 0.95; }
+    25% { opacity: 0.4; }
+    50% { opacity: 0.2; }
+    75% { opacity: 0.4; }
+}
+
+@keyframes meridian2 {
+    0%, 100% { opacity: 0.8; }
+    25% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+    75% { opacity: 0.95; }
+}
+
+@keyframes meridian3 {
+    0%, 100% { opacity: 0.8; }
+    25% { opacity: 0.95; }
+    50% { opacity: 0.6; }
+    75% { opacity: 0.2; }
+}
+
+/* Card pulse on hover for NeoX Control */
+.product-card#control:hover .product-icon svg rect:first-of-type {
+    animation: cardPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes cardPulse {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+}
+
+/* Money flow animation for Disbursement */
+.product-card#disbursement:hover .product-icon svg path:nth-of-type(2) {
+    animation: moneyFlow 1.2s ease-in-out infinite;
+}
+
+@keyframes moneyFlow {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(3px); opacity: 0.7; }
+}
+
+/* Collection upward pulse */
+.product-card#collection:hover .product-icon svg circle {
+    animation: collectPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes collectPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Payout checkmark pulse */
+.product-card#payout:hover .product-icon svg path:nth-of-type(2) {
+    animation: checkPulse 1s ease-in-out infinite;
+}
+
+@keyframes checkPulse {
+    0%, 100% { stroke-width: 2.5; }
+    50% { stroke-width: 3.5; }
+}
+
 .product-title {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-md);
