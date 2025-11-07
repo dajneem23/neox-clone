@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 120 48" fill="none">
     <defs>
         <linearGradient id="light-facet" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#9775F5; stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#764CF0; stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#A78BFA; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#8B5CF6; stop-opacity:1" />
         </linearGradient>
         <linearGradient id="mid-facet" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#764CF0; stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#5E32D1; stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#8B5CF6; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#7C3AED; stop-opacity:1" />
         </linearGradient>
         <linearGradient id="dark-facet" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#5E32D1; stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#491EB8; stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#6D28D9; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#5B21B6; stop-opacity:1" />
         </linearGradient>
         
         <linearGradient id="metallic-shine" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -39,13 +39,13 @@
         </g>
         
         <g id="logotype">
-            <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#491EB8" transform="translate(1, 1)"></path>
-            <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#491EB8" transform="translate(1, 1)"></path>
-            <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#491EB8" transform="translate(1, 1)"></path>
+            <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#5B21B6" transform="translate(1, 1)"></path>
+            <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#5B21B6" transform="translate(1, 1)"></path>
+            <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#5B21B6" transform="translate(1, 1)"></path>
             
-            <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#764CF0"></path>
-            <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#764CF0"></path>
-            <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#764CF0"></path>
+            <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#8B5CF6"></path>
+            <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#8B5CF6"></path>
+            <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#8B5CF6"></path>
 
             <g id="metallic-X">
                 <path id="slash-path" d="M112.202 13.7095C112.058 13.7095 111.877 13.7693 111.793 13.9125L95.99 32.6655C95.4968 33.2397 95.9293 34.1353 96.6869 34.1353H103.225C103.369 34.1353 103.549 34.0755 103.634 33.9324L119.437 15.1794C119.581 14.9999 119.641 14.8327 119.641 14.6297V14.6057C119.641 14.1395 119.268 13.733 118.739 13.733C118.764 13.709 112.201 13.709 112.201 13.709L112.202 13.7095Z" />
