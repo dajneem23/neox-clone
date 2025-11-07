@@ -7,8 +7,12 @@
   "scripts": {
     "dev": "wrangler dev",
     "preview": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "publish": "wrangler deploy",
+    "build": "npm run minify:css && npm run minify:html",
+    "minify:css": "cleancss -o css/style.min.css css/style.css",
+    "minify:html": "npx html-minifier --collapse-whitespace --remove-comments --minify-css --minify-js -o index.min.html index.html",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:prod": "npm run build && wrangler deploy --env production",
+    "publish": "npm run deploy",
     "cf-typegen": "wrangler types"
   },
   "keywords": [
@@ -23,6 +27,9 @@
   "license": "MIT",
   "devDependencies": {
     "@cloudflare/kv-asset-handler": "^0.3.0",
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "html-minifier": "^4.0.0",
     "wrangler": "^3.0.0"
   },
   "engines": {
@@ -30,6 +37,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/neox-clone.git"
+    "url": "git+https://github.com/dajneem23/neox-clone.git"
   }
 }
