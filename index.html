@@ -522,6 +522,161 @@
         </div>
     </section>
 
+    <!-- Designed for Developers Section -->
+    <section class="developers-section">
+        <div class="container">
+            <div class="developers-header">
+                <span class="section-badge">Designed for developers</span>
+                <h2 class="section-title">Ship faster with powerful and easy-to-use APIs</h2>
+                <p class="section-description">
+                    Save engineering time with unified payments functionality. We obsess over the maze of gateways,
+                    payments rails, and financial institutions that make up the global economic landscape so that
+                    your teams can build what you need on one platform.
+                </p>
+                <a href="https://docs.neox.vn" class="btn btn-secondary btn-large">Read the docs →</a>
+            </div>
+    
+            <div class="developers-grid">
+                <div class="developer-card">
+                    <div class="developer-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="#F3F4F6" />
+                            <path d="M18 20L24 26L18 32" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M28 32H34" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="developer-card-title">Use NeoX with your stack</h3>
+                    <p class="developer-card-description">
+                        We offer client and server libraries in everything from React and PHP to .NET and iOS.
+                    </p>
+                    <a href="https://docs.neox.vn/libraries" class="developer-card-link">
+                        See libraries →
+                    </a>
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                        </div>
+                        <pre class="code-content"><code>npm install @neox/payment-sdk
+    
+    import { NeoX } from '@neox/payment-sdk'
+    
+    const neox = new NeoX({
+      apiKey: 'your_api_key'
+    })
+    
+    const payment = await neox.payments.create({
+      amount: 10000,
+      currency: 'vnd'
+    })</code></pre>
+                    </div>
+                </div>
+    
+                <div class="developer-card">
+                    <div class="developer-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="#F3F4F6" />
+                            <circle cx="24" cy="24" r="8" stroke="#8B5CF6" stroke-width="2" />
+                            <path
+                                d="M24 16V14M24 34V32M32 24H34M14 24H16M29.66 18.34L31.07 16.93M16.93 31.07L18.34 29.66M29.66 29.66L31.07 31.07M16.93 16.93L18.34 18.34"
+                                stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="developer-card-title">Build AI agents</h3>
+                    <p class="developer-card-description">
+                        Create agents that can manage money and handle support tasks using the NeoX API.
+                    </p>
+                    <a href="https://docs.neox.vn/agents" class="developer-card-link">
+                        View docs →
+                    </a>
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                        </div>
+                        <pre class="code-content"><code>const agent = await neox.ai.createAgent({
+      name: 'PaymentBot',
+      capabilities: [
+        'process_payments',
+        'handle_refunds',
+        'answer_questions'
+      ],
+      model: 'gpt-4'
+    })
+    
+    await agent.processRequest({
+      message: 'Refund order #12345'
+    })</code></pre>
+                    </div>
+                </div>
+    
+                <div class="developer-card">
+                    <div class="developer-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="#F3F4F6" />
+                            <rect x="16" y="16" width="16" height="16" rx="2" stroke="#8B5CF6" stroke-width="2" />
+                            <path d="M20 22H28M20 26H26" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" />
+                            <path d="M28 18V14M28 34V30M32 18H34M32 30H34" stroke="#8B5CF6" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="developer-card-title">Explore prebuilt integrations</h3>
+                    <p class="developer-card-description">
+                        Connect NeoX to over a hundred tools including Adobe, Salesforce, and Xero.
+                    </p>
+                    <a href="https://marketplace.neox.vn" class="developer-card-link">
+                        Browse App Marketplace →
+                    </a>
+                    <div class="integration-logos">
+                        <div class="integration-logo">Shopify</div>
+                        <div class="integration-logo">WooCommerce</div>
+                        <div class="integration-logo">Salesforce</div>
+                        <div class="integration-logo">Xero</div>
+                        <div class="integration-logo">QuickBooks</div>
+                        <div class="integration-logo">Zapier</div>
+                    </div>
+                </div>
+    
+                <div class="developer-card">
+                    <div class="developer-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="#F3F4F6" />
+                            <rect x="18" y="14" width="12" height="20" rx="2" stroke="#8B5CF6" stroke-width="2" />
+                            <circle cx="24" cy="30" r="1.5" fill="#8B5CF6" />
+                            <path d="M20 18H28" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="developer-card-title">Build on NeoX Apps</h3>
+                    <p class="developer-card-description">
+                        Create an app just for your team or for the millions of businesses on NeoX.
+                    </p>
+                    <a href="https://neox.vn/apps" class="developer-card-link">
+                        Learn about Apps →
+                    </a>
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                        </div>
+                        <pre class="code-content"><code>neox app:create payment-tracker
+    
+    neox app:deploy
+    
+    ✓ App deployed successfully
+      URL: https://apps.neox.vn/payment-tracker
+      
+      Install for your team:
+      neox app:install payment-tracker</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
