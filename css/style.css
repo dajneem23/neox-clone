@@ -40,6 +40,8 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4.5rem;
+    --spacing-4xl: 6rem;
+    --spacing-5xl: 8rem;
     
     /* Border Radius - More rounded like Stripe */
     --radius-sm: 0.5rem;
@@ -1481,6 +1483,17 @@ section {
     padding: var(--spacing-3xl) 0;
 }
 
+.trusted-banks {
+    padding-bottom: var(--spacing-2xl);
+}
+
+.trusted-banks .section-title {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
+}
+
 .partners .section-title {
     color: var(--text-primary);
     font-weight: 700;
@@ -1651,11 +1664,11 @@ section {
 /* Developers Section */
 .developers-section {
     background: linear-gradient(180deg, #ffffff 0%, #faf9fb 100%);
-    padding: var(--spacing-4xl) 0;
-    margin-bottom: var(--spacing-4xl);
+    padding: var(--spacing-4xl) 0 var(--spacing-5xl) 0;
     position: relative;
     overflow: hidden;
 }
+
 
 .developers-section::before {
     content: "";
@@ -1713,7 +1726,7 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-2xl);
-    margin-top: var(--spacing-3xl);
+    margin-top: var(--spacing-4xl);
 }
 
 .developer-card {
