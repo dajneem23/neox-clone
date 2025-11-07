@@ -1,50 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
   <defs>
-    <linearGradient id="license-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:1" />
+    <linearGradient id="cert-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
     </linearGradient>
+    <linearGradient id="ribbon-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FBBF24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
   </defs>
   
   <style>
-    .badge { animation: badgePulse 3s ease-in-out infinite; transform-origin: center; }
-    .star { animation: starRotate 4s linear infinite; transform-origin: center; }
-    .check { 
-      stroke-dasharray: 20;
-      stroke-dashoffset: 20;
-      animation: checkDraw 2s ease-out infinite;
-    }
+    .certificate { animation: certFloat 3s ease-in-out infinite; }
+    .ribbon { animation: ribbonWave 2s ease-in-out infinite; transform-origin: center bottom; }
+    .star { animation: starTwinkle 1.5s ease-in-out infinite; }
+    .star:nth-child(1) { animation-delay: 0s; }
+    .star:nth-child(2) { animation-delay: 0.3s; }
+    .star:nth-child(3) { animation-delay: 0.6s; }
     
-    @keyframes badgePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    @keyframes certFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(1deg); }
     }
-    @keyframes starRotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes ribbonWave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.05); }
     }
-    @keyframes checkDraw {
-      0% { stroke-dashoffset: 20; }
-      50%, 100% { stroke-dashoffset: 0; }
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1); }
     }
   </style>
 
-  <!-- Badge background -->
-  <g class="badge">
-    <circle cx="24" cy="24" r="18" fill="url(#license-gradient)" opacity="0.2"/>
-    <circle cx="24" cy="24" r="14" fill="url(#license-gradient)"/>
+  <!-- Background glow -->
+  <rect x="8" y="8" width="32" height="32" rx="4" fill="url(#cert-gradient)" opacity="0.15"/>
+  
+  <!-- Certificate document -->
+  <g class="certificate" filter="url(#shadow)">
+    <!-- Main document -->
+    <rect x="10" y="8" width="28" height="32" rx="2" fill="white"/>
+    <rect x="10" y="8" width="28" height="32" rx="2" fill="url(#cert-gradient)" opacity="0.1"/>
     
-    <!-- Ribbon -->
-    <path d="M20 32v10l4-3 4 3V32" fill="#4F46E5"/>
+    <!-- Document border -->
+    <rect x="10" y="8" width="28" height="32" rx="2" stroke="url(#cert-gradient)" 
+          stroke-width="2" fill="none" opacity="0.3"/>
+    
+    <!-- Decorative corner elements -->
+    <path d="M12 10 L16 10 L12 14 Z" fill="url(#cert-gradient)" opacity="0.2"/>
+    <path d="M36 10 L32 10 L36 14 Z" fill="url(#cert-gradient)" opacity="0.2"/>
+    
+    <!-- Document lines -->
+    <line x1="15" y1="15" x2="33" y2="15" stroke="url(#cert-gradient)" stroke-width="1.5" opacity="0.3"/>
+    <line x1="15" y1="19" x2="30" y2="19" stroke="url(#cert-gradient)" stroke-width="1.5" opacity="0.3"/>
+    <line x1="15" y1="23" x2="33" y2="23" stroke="url(#cert-gradient)" stroke-width="1.5" opacity="0.3"/>
   </g>
 
-  <!-- Star -->
-  <g class="star">
-    <path d="M24 10l2.5 5 5.5 0.8-4 3.9 0.9 5.5-4.9-2.6-4.9 2.6 0.9-5.5-4-3.9 5.5-0.8z" 
-          fill="#FBBF24"/>
+  <!-- Award ribbon with seal -->
+  <g class="ribbon">
+    <!-- Ribbon tails -->
+    <path d="M20 32 L18 40 L20 38 L22 40 Z" fill="url(#ribbon-gradient)" opacity="0.8"/>
+    <path d="M28 32 L26 40 L28 38 L30 40 Z" fill="url(#ribbon-gradient)" opacity="0.8"/>
+    
+    <!-- Seal circle -->
+    <circle cx="24" cy="30" r="7" fill="url(#ribbon-gradient)"/>
+    <circle cx="24" cy="30" r="5.5" fill="#F59E0B"/>
+    
+    <!-- Star in seal -->
+    <path d="M24 26.5 L25 28.5 L27 28.7 L25.5 30.2 L25.8 32.2 L24 31.2 L22.2 32.2 L22.5 30.2 L21 28.7 L23 28.5 Z" 
+          fill="white" opacity="0.9"/>
   </g>
 
-  <!-- Checkmark -->
-  <path class="check" d="M18 24l4 4 8-8" stroke="white" stroke-width="2.5" 
-        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Decorative stars -->
+  <g>
+    <circle class="star" cx="12" cy="12" r="1" fill="#8B5CF6"/>
+    <circle class="star" cx="36" cy="14" r="1" fill="#8B5CF6"/>
+    <circle class="star" cx="34" cy="24" r="1" fill="#8B5CF6"/>
+  </g>
 </svg>
