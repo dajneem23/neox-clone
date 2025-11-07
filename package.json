@@ -5,10 +5,10 @@
   "main": "index.html",
   "type": "module",
   "scripts": {
-    "dev": "wrangler pages dev . --port 8000",
-    "preview": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy . --project-name=neox-clone",
-    "publish": "wrangler pages deploy .",
+    "dev": "wrangler dev",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "publish": "wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "keywords": [
@@ -22,6 +22,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.0",
     "wrangler": "^3.0.0"
   },
   "engines": {
