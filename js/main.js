@@ -183,3 +183,156 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
+// ===================================
+// Chat Widget Functionality
+// ===================================
+
+const chatWidget = document.getElementById('chatWidget');
+const chatBubble = document.getElementById('chatBubble');
+const chatWindow = document.getElementById('chatWindow');
+const chatClose = document.getElementById('chatClose');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+
+// Toggle chat window
+function toggleChat() {
+    chatWidget.classList.toggle('active');
+    if (chatWidget.classList.contains('active')) {
+        chatInput.focus();
+    }
+}
+
+chatBubble.addEventListener('click', toggleChat);
+chatClose.addEventListener('click', toggleChat);
+
+// Handle quick reply buttons
+const quickReplyButtons = document.querySelectorAll('.quick-reply-btn');
+quickReplyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const message = button.getAttribute('data-message');
+        sendMessage(message);
+        // Remove quick replies after first interaction
+        document.querySelector('.quick-replies').style.display = 'none';
+    });
+});
+
+// Send message function
+function sendMessage(message) {
+    if (!message.trim()) return;
+
+    // Add user message
+    const userMessageHTML = `
+        <div class="chat-message user-message">
+            <div class="message-content">
+                <p>${escapeHtml(message)}</p>
+            </div>
+        </div>
+    `;
+
+    const messagesContainer = chatMessages;
+    messagesContainer.insertAdjacentHTML('beforeend', userMessageHTML);
+
+    // Scroll to bottom
+    chatMessages.parentElement.scrollTop = chatMessages.parentElement.scrollHeight;
+
+    // Simulate bot response after a delay
+    setTimeout(() => {
+        addBotResponse(message);
+    }, 1000);
+}
+
+// Add bot response
+function addBotResponse(userMessage) {
+    let response = getAutomatedResponse(userMessage);
+
+    const botMessageHTML = `
+        <div class="chat-message bot-message">
+            <div class="message-avatar">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="16" fill="#764CF0"/>
+                    <text x="16" y="21" text-anchor="middle" fill="white" font-size="14" font-weight="600">N</text>
+                </svg>
+            </div>
+            <div class="message-content">
+                <p>${response}</p>
+            </div>
+        </div>
+    `;
+
+    chatMessages.insertAdjacentHTML('beforeend', botMessageHTML);
+    chatMessages.parentElement.scrollTop = chatMessages.parentElement.scrollHeight;
+}
+
+// Get automated response based on keywords
+function getAutomatedResponse(message) {
+    const lowerMessage = message.toLowerCase();
+
+    if (lowerMessage.includes('product') || lowerMessage.includes('collection') || lowerMessage.includes('payout') || lowerMessage.includes('control') || lowerMessage.includes('gateway')) {
+        return "We offer four main products: NeoX Collection for payments, NeoX Payout for bulk transfers, NeoX Control for virtual cards, and Payment Gateway for seamless integrations. Which one interests you most?";
+    } else if (lowerMessage.includes('integration') || lowerMessage.includes('api') || lowerMessage.includes('help') || lowerMessage.includes('setup')) {
+        return "Our documentation at docs.neox.vn has comprehensive guides for integration. Would you like me to connect you with our technical team for personalized assistance?";
+    } else if (lowerMessage.includes('sales') || lowerMessage.includes('contact') || lowerMessage.includes('demo')) {
+        return "I'd be happy to connect you with our sales team! Please provide your email and we'll reach out within 24 hours. You can also contact us directly through our contact form.";
+    } else if (lowerMessage.includes('pricing') || lowerMessage.includes('cost') || lowerMessage.includes('fee')) {
+        return "Our pricing varies based on transaction volume and specific needs. I recommend speaking with our sales team to get a custom quote that fits your business. Shall I arrange a call?";
+    } else if (lowerMessage.includes('security') || lowerMessage.includes('compliance') || lowerMessage.includes('safe')) {
+        return "Security is our top priority! We're PCI DSS certified, licensed by the State Bank of Vietnam, and follow strict AML & KYC procedures. All transactions are encrypted and monitored 24/7.";
+    } else if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
+        return "Hello! 👋 Welcome to NeoX. How can I assist you with our payment solutions today?";
+    } else if (lowerMessage.includes('thank')) {
+        return "You're welcome! Is there anything else I can help you with?";
+    } else {
+        return "Thanks for your message! For specific questions, I recommend checking our documentation or speaking with our support team. Would you like me to connect you with a specialist?";
+    }
+}
+
+// Handle form submission
+chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const message = chatInput.value;
+    if (message.trim()) {
+        sendMessage(message);
+        chatInput.value = '';
+    }
+});
+
+// Escape HTML to prevent XSS
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Close chat when clicking outside
+document.addEventListener('click', (e) => {
+    if (chatWidget.classList.contains('active') &&
+        !chatWidget.contains(e.target) &&
+        e.target !== chatBubble) {
+        // Don't close immediately to allow for better UX
+    }
+});
+
+// Add typing indicator (optional enhancement)
+function showTypingIndicator() {
+    const typingHTML = `
+        <div class="chat-message bot-message typing-indicator">
+            <div class="message-avatar">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="16" fill="#764CF0"/>
+                    <text x="16" y="21" text-anchor="middle" fill="white" font-size="14" font-weight="600">N</text>
+                </svg>
+            </div>
+            <div class="message-content">
+                <div class="typing-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    `;
+    chatMessages.insertAdjacentHTML('beforeend', typingHTML);
+    chatMessages.parentElement.scrollTop = chatMessages.parentElement.scrollHeight;
+}
+
+console.log('NeoX Chat Widget initialized! 💬');
