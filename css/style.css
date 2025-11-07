@@ -335,25 +335,39 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    transition: opacity var(--transition-fast);
+    transition: all var(--transition-base);
+}
+
+.logo img {
+    width: 96px;
+    height: 38px;
+    transition: all var(--transition-base);
+    filter: brightness(1.1) drop-shadow(0 1px 3px rgba(124, 58, 237, 0.2));
 }
 
 .logo:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
-.nav_logo {
-    /* Make the header logo larger on desktop while keeping proportions */
-    width: 96px !important;
-    height: 38px !important;
+.logo:hover img {
+    filter: brightness(1.15) 
+            drop-shadow(0 2px 6px rgba(124, 58, 237, 0.4))
+            drop-shadow(0 1px 3px rgba(255, 170, 0, 0.3));
+    transform: translateY(-1px);
 }
 
 /* Slightly reduce logo on smaller screens to preserve space */
 @media (max-width: 640px) {
-    .nav_logo {
-        width: 72px !important;
-        height: 28px !important;
+    .logo img {
+        width: 72px;
+        height: 28px;
     }
+}
+
+.nav_logo {
+    /* Legacy support - kept for backward compatibility */
+    width: 96px !important;
+    height: 38px !important;
 }
 
 .nav_logo svg {
@@ -1306,6 +1320,24 @@ section {
 
 .footer-logo {
     margin-bottom: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.footer-logo img,
+.footer-logo svg {
+    width: 120px;
+    height: 48px;
+    opacity: 0.95;
+    transition: all var(--transition-base);
+    filter: drop-shadow(0 2px 8px rgba(124, 58, 237, 0.3));
+}
+
+.footer-logo:hover img,
+.footer-logo:hover svg {
+    opacity: 1;
+    filter: drop-shadow(0 4px 16px rgba(124, 58, 237, 0.6)) 
+            drop-shadow(0 2px 8px rgba(255, 170, 0, 0.4));
+    transform: translateY(-3px);
 }
 
 .footer-tagline {

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 120 48" fill="none">
+    <defs>
+        <linearGradient id="light-facet" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#9775F5; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#764CF0; stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="mid-facet" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#764CF0; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#5E32D1; stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="dark-facet" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#5E32D1; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#491EB8; stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="metallic-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFDE4A" />
+            <stop offset="50%" stop-color="#FFAA00" />
+            <stop offset="100%" stop-color="#FFDE4A" />
+        </linearGradient>
+
+        <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur" />
+            <feOffset in="blur" dx="2" dy="2" result="offsetBlur" />
+            <feFlood flood-color="#000" flood-opacity="0.3" result="offsetColor"/>
+            <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"/>
+            <feMerge>
+                <feMergeNode in="offsetBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g filter="url(#drop-shadow)">
+        <g id="geometric-mark">
+            <path d="M23.6036 19.3759L28.7114 22.495L36.355 17.8457L36.3792 29.7741L3.00483 10.627L0.300293 12.0967V35.7859L3.00483 37.292L18.2557 28.3043L13.2322 25.3518L5.56437 29.7501V18.0129L38.9387 37.292L41.6068 35.726V12.0369L38.9028 10.627L23.6036 19.3759Z" fill="url(#mid-facet)"></path>
+            <path d="M20.9597 0.251953L5.76904 8.91706L20.9597 17.666L36.0909 8.97742L20.9597 0.251953Z" fill="url(#light-facet)"></path>
+            <path d="M5.76904 38.8448L20.9597 47.5938L36.0909 38.9046L20.9597 30.1797L5.76904 38.8448Z" fill="url(#dark-facet)"></path>
+        </g>
+        
+        <g id="logotype">
+            <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#491EB8" transform="translate(1, 1)"></path>
+            <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#491EB8" transform="translate(1, 1)"></path>
+            <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#491EB8" transform="translate(1, 1)"></path>
+            
+            <path d="M48.2896 16.0293V31.7701H53.1084V20.0927H58.3967V31.7701H63.1683V19.1126L59.8746 16.0293H48.2896Z" fill="#764CF0"></path>
+            <path d="M93.958 16.0293H85.858L82.5415 19.1249V28.5436L85.858 31.8064H93.958L97.2751 28.5671V19.1489L93.958 16.0293ZM92.5279 27.6944H87.24V20.0927H92.5279V27.6944Z" fill="#764CF0"></path>
+            <path d="M68.5041 16.0289L65.2827 19.1245V28.5433C65.2827 28.5433 67.7228 30.7063 68.7441 31.7825H80.1857V27.7069H70.3068V25.1608H80.1857V19.0888L77.1929 15.9932L68.5041 16.0289ZM75.9791 22.6383H70.3186V20.0923H75.9791V22.6383Z" fill="#764CF0"></path>
+
+            <g id="metallic-X">
+                <path id="slash-path" d="M112.202 13.7095C112.058 13.7095 111.877 13.7693 111.793 13.9125L95.99 32.6655C95.4968 33.2397 95.9293 34.1353 96.6869 34.1353H103.225C103.369 34.1353 103.549 34.0755 103.634 33.9324L119.437 15.1794C119.581 14.9999 119.641 14.8327 119.641 14.6297V14.6057C119.641 14.1395 119.268 13.733 118.739 13.733C118.764 13.709 112.201 13.709 112.201 13.709L112.202 13.7095Z" />
+
+                <use href="#slash-path" fill="#D48800" transform="translate(1, 1)" />
+                <use href="#slash-path" fill="url(#metallic-shine)" />
+
+                <use href="#slash-path" fill="#D48800" transform="translate(215.427, 0) scale(-1, 1) translate(1, 1)" />
+                <use href="#slash-path" fill="url(#metallic-shine)" transform="translate(215.427, 0) scale(-1, 1)" />
+            </g>
+        </g>
+    </g>
+</svg>
