@@ -14,6 +14,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: CLOUDFLARE_ACCOUNT_ID
     permissions:
       contents: read
       deployments: write
@@ -32,14 +33,8 @@ jobs:
         run: npm ci
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: neox-clone
-          directory: .
-          # Optional: Use a custom branch name for deployments
-          branch: ${{ github.head_ref || github.ref_name }}
-          # Optional: Add a commit message
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '3'
+          command: pages deploy . --project-name=neox-clone
