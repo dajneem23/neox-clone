@@ -1961,12 +1961,84 @@ section {
     align-items: center;
     padding-top: var(--spacing-xl);
     border-top: 1px solid rgba(167, 139, 250, 0.2);
+    gap: var(--spacing-lg);
 }
 
-.copyright {
+.footer-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.copyright,
+.made-with {
     color: #C4B5FD;
     font-size: var(--font-size-sm);
     opacity: 0.7;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.footer-divider {
+    color: rgba(167, 139, 250, 0.4);
+    font-size: var(--font-size-sm);
+    opacity: 0.6;
+}
+
+.made-with {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    font-size: 1rem;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10%, 30% { transform: scale(1.15); }
+    20%, 40% { transform: scale(1); }
+}
+
+.footer-link {
+    color: #DDD6FE;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+    opacity: 0.8;
+    position: relative;
+    white-space: nowrap;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #FBBF24, #F59E0B);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #FBBF24;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.footer-link:hover::after {
+    width: 100%;
 }
 
 .terms-link {
@@ -2041,6 +2113,17 @@ section {
         text-align: center;
         padding-top: var(--spacing-lg);
     }
+    
+    .footer-bottom-left,
+    .footer-bottom-right {
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .footer-bottom-right {
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
 }
 
 @media (max-width: 640px) {
@@ -2074,8 +2157,18 @@ section {
     }
     
     .copyright,
-    .terms-link {
+    .made-with,
+    .footer-link {
         font-size: 0.8125rem;
+    }
+    
+    .footer-divider {
+        display: none;
+    }
+    
+    .footer-bottom-left {
+        flex-direction: column;
+        gap: 0.25rem;
     }
 }
 
@@ -2142,8 +2235,13 @@ section {
     }
     
     .copyright,
-    .terms-link {
+    .made-with,
+    .footer-link {
         font-size: 0.75rem;
+    }
+    
+    .footer-bottom-right {
+        gap: var(--spacing-sm);
     }
 }
 
